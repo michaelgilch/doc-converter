@@ -31,10 +31,19 @@
 
 	/* Semantic roles */
 	--bg: var(--nord6);
-	--ft: var(--nord0);
+	--fg: var(--nord0);
 
 	--font-body: system-ui, "DejaVu	Sans", Arial, sans-serif;
 	--font-mono: "Hack", "DejaVu Sans Mono", Consolas;
+}
+
+/* Dark theme */
+@media screen and (prefers-color-scheme: dark) {
+	:root {
+		/* Semantic roles */
+		--bg: var(--nord0);
+		--fg: var(--nord4);
+	}
 }
 
 /* -------------
