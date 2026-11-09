@@ -32,6 +32,7 @@
 	/* Semantic roles */
 	--bg: var(--nord6);
 	--fg: var(--nord0);
+	--link: var(--nord10);
 
 	--font-body: system-ui, "DejaVu	Sans", Arial, sans-serif;
 	--font-mono: "Hack", "DejaVu Sans Mono", Consolas;
@@ -43,12 +44,13 @@
 		/* Semantic roles */
 		--bg: var(--nord0);
 		--fg: var(--nord4);
+		--link: var(--nord8);
 	}
 }
 
-/* -------------
+/* --------------------------------------------------------------------------
  * Page and body
- * ------------- */
+ * ------------------------------------------------------------------------- */
 
 html {
 	background: var(--bg);
@@ -62,9 +64,9 @@ body {
 	padding: 1.5rem;
 }
 
-/* -------------
+/* --------------------------------------------------------------------------
  * Headings
- * ------------- */
+ * ------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
 	color: var(--heading);
@@ -80,30 +82,23 @@ h1 {
 	font-size: 2em;
 }
 
-h2 {
-	font-size: 1.5em;
-}
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1.10em; }
+h5 { font-size: 1.05em; }
+h6 { font-size: 1em; }
 
-h3 {
-	font-size: 1.25em;
-}
-
-h4 {
-	font-size: 1.10em;
-}
-
-h5 {
-	font-size: 1.05em;
-}
-
-h6 {
-	font-size: 1em;
-}
-
-/* -------------
+/* --------------------------------------------------------------------------
  * Text
- * ------------- */
+ * ------------------------------------------------------------------------- */
 
-p {
-	margin: 0 0 1em;
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  /* Break long URLs anywhere to prevent horizonal overflow. */
+  overflow-wrap: anywhere;
 }
+
+a:hover { text-decoration: underline; }
