@@ -9,6 +9,8 @@ in ordinary technical docs. The first paragraph contains tests for **bold**,
 
 This is body text to confirm spacing above and below.
 
+It also contains a second line.
+
 ### Third level
 
 This is body text to confirm spacing above and below.
@@ -27,6 +29,8 @@ This is body text to confirm spacing above and below.
 
 ## Lists
 
+### Bullet Lists
+
 - A top-level bullet
 - Another top-level bullet with sublist:
   - Nested item one
@@ -34,3 +38,19 @@ This is body text to confirm spacing above and below.
     are properly displayed and converted.
     - Third level, because someone always does it
 - Back at the top level
+
+### Ordered Lists
+
+1. Ordered lists
+2. Count correctly
+   1. Even when nested
+   2. And restart per level
+3. And resume after a nested block
+
+### Loose Lists
+
+- First loose item.
+
+  With a second paragraph inside it.
+
+- Second loose item.
