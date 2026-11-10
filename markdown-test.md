@@ -54,3 +54,11 @@ This is body text to confirm spacing above and below.
   With a second paragraph inside it.
 
 - Second loose item.
+
+## Blockquotes
+
+> A blockquote. Set back from the body with a bar on the left. It reads as a 
+> quote. The bar is frost-colored. Make sure there's no awkward gap at the 
+> bottom.
+>
+> A second paragraph inside the same quote.

@@ -31,8 +31,11 @@
 
 	/* Semantic roles */
 	--bg: var(--nord6);
+	--bg-raised: var(--nord5);
 	--fg: var(--nord0);
+	--fg-muted: var(--nord3);
 	--link: var(--nord10);
+	--quote-bar: var(--nord9);
 
 	--font-body: system-ui, "DejaVu	Sans", Arial, sans-serif;
 	--font-mono: "Hack", "DejaVu Sans Mono", Consolas;
@@ -43,8 +46,11 @@
 	:root {
 		/* Semantic roles */
 		--bg: var(--nord0);
+		--bg-raised: var(--nord1);
 		--fg: var(--nord4);
+		--fg-muted: #8f9bb3; /* nord3 is unreadable on nord0, so lightened it */
 		--link: var(--nord8);
+		--quote-bar: var(--nord9);
 	}
 }
 
@@ -115,3 +121,19 @@ ul, ol {
 li { margin: 0.25em 0; }
 li > ul, li > ol { margin-bottom: 0; }
 li > p { margin-bottom: 0.5em; }
+
+/* --------------------------------------------------------------------------
+ * Blockquotes
+ * ------------------------------------------------------------------------- */
+
+blockquote {
+	margin: 1em 0;
+	padding: 0.5em 1em;
+	border-left: 3px solid var(--quote-bar);
+	background: var(--bg-raised);
+	color: var(--fg-muted);
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+blockquote > :last-child { margin-bottom: 0; }
