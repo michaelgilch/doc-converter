@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.13" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>markdown-test</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">
+:root {
+
+--nord0: #2e3440;
+--nord1: #3b4252;
+--nord2: #434c5e;
+--nord3: #4c566a;
+
+--nord4: #d8dee9;
+--nord5: #e5e9f0;
+--nord6: #eceff4;
+
+--nord7: #8fbcbb;
+--nord8: #88c0d0;
+--nord9: #81a1c1;
+--nord10: #5e81ac;
+
+--nord11: #bf616a;
+--nord12: #d08770;
+--nord13: #ebcb8b;
+--nord14: #a3be8c;
+--nord15: #b48ead;
+
+--bg: var(--nord6);
+--bg-raised: var(--nord5);
+--fg: var(--nord0);
+--fg-muted: var(--nord3);
+--heading: var(--nord0);
+--heading-1: var(--nord10);
+--link: var(--nord10);
+--quote-bar: var(--nord9);
+--rule: var(--nord4);
+--font-body: system-ui, "DejaVu	Sans", Arial, sans-serif;
+--font-mono: "Hack", "DejaVu Sans Mono", Consolas;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+:root {
+
+--bg: var(--nord0);
+--bg-raised: var(--nord1);
+--fg: var(--nord4);
+--fg-muted: #8f9bb3; 
+--heading: var(--nord6);
+--heading-1: var(--nord8);
+--link: var(--nord8);
+--quote-bar: var(--nord9);
+--rule: var(--nord2);
+}
+}
+
+html {
+background: var(--bg);
+color: var(--fg);
+font-family: var(--font-body);
+line-height: 1.5;
+}
+body {
+margin: 0 auto;
+padding: 1.5rem;
+}
+@media print {
+
+:root {
+--bg: white;
+}
+
+@page {
+size: 8.5in 11in;
+margin: 0.75in;
+}
+html {
+line-height: 1.4;
+}
+body {
+padding: 0;
+}
+}
+
+h1, h2, h3, h4, h5, h6 {
+color: var(--heading);
+line-height: 1.25;
+margin: 1.75em 0 0.6em;
+
+break-after: avoid;
+page-break-after: avoid;
+}
+h1 {
+color: var(--heading-1);
+font-size: 2em;
+}
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1.10em; }
+h5 { font-size: 1.05em; }
+h6 { font-size: 1em; }
+
+p { margin: 0 0 1em; }
+a {
+color: var(--link);
+text-decoration: none;
+
+overflow-wrap: anywhere;
+}
+a:hover { text-decoration: underline; }
+hr {
+border: 0;
+border-top: 1px solid var(--rule);
+margin: 2em 0;
+}
+
+ul, ol {
+margin: 0 0 1em;
+padding-left: 1.6em;
+}
+li { margin: 0.25em 0; }
+li > ul, li > ol { margin-bottom: 0; }
+li > p { margin-bottom: 0.5em; }
+
+blockquote {
+margin: 1em 0;
+padding: 0.5em 1em;
+border-left: 3px solid var(--quote-bar);
+background: var(--bg-raised);
+color: var(--fg-muted);
+break-inside: avoid;
+page-break-inside: avoid;
+}
+blockquote > :last-child { margin-bottom: 0; }
+
+table {
+width: 100%;
+margin: 0 0 1.25em;
+font-size: 0.9em;
+line-height: 1.4;
+border-collapse: collapse;
+}
+th, td {
+padding: 0.4em 0.6em;
+border-bottom: 1px solid var(--rule);
+text-align: left;
+vertical-align: top;
+}
+th {
+font-weight: 600;
+border-bottom: 2px solid var(--fg-muted);
+background: var(--bg-raised);
+}
+tbody tr:nth-child(even) { background: var(--bg-raised); }
+
+img {
+max-width: 80%;
+height: auto;
+display: block;
+margin: 1.25em auto;
+}
+
+code, pre {
+font-family: var(--font-mono);
+font-size: 0.9em;
+}
+
+:not(pre) > code {
+background: var(--bg-raised);
+padding: 0.1em 0.3em;
+}
+pre {
+margin: 0 0 1em;
+padding: 0.8em 1em;
+background: var(--bg-raised);
+line-height: 1.1;
+}</style>
+</head>
+<body>
+<h1 id="markdown-test">Markdown Test</h1>
+<p>This is a test file for Markdown conversions. Add every construct
+that shows up in ordinary technical docs. The first paragraph contains
+tests for <strong>bold</strong>, <em>italic</em>,
+<em><strong>both</strong></em>, <del>strikethrough</del>,
+<code>inline code</code>, and a <a href="https://www.nordtheme.com/docs/colors-and-palettes">link to the
+Nord palette</a>.</p>
+<h2 id="headings">Headings</h2>
+<p>This is body text to confirm spacing above and below.</p>
+<p>It also contains a second line.</p>
+<h3 id="third-level">Third level</h3>
+<p>This is body text to confirm spacing above and below.</p>
+<h4 id="fourth-level">Fourth level</h4>
+<p>This is body text to confirm spacing above and below.</p>
+<h5 id="fifth-level">Fifth level</h5>
+<p>This is body text to confirm spacing above and below.</p>
+<h6 id="sixth-level">Sixth level</h6>
+<p>This is body text to confirm spacing above and below.</p>
+<hr />
+<h2 id="lists">Lists</h2>
+<h3 id="bullet-lists">Bullet Lists</h3>
+<ul>
+<li>A top-level bullet</li>
+<li>Another top-level bullet with sublist:
+<ul>
+<li>Nested item one</li>
+<li>Nested item two, which wraps to a second line to check if hanging
+indents are properly displayed and converted.
+<ul>
+<li>Third level, because someone always does it</li>
+</ul></li>
+</ul></li>
+<li>Back at the top level</li>
+</ul>
+<h3 id="ordered-lists">Ordered Lists</h3>
+<ol type="1">
+<li>Ordered lists</li>
+<li>Count correctly
+<ol type="1">
+<li>Even when nested</li>
+<li>And restart per level</li>
+</ol></li>
+<li>And resume after a nested block</li>
+</ol>
+<h3 id="loose-lists">Loose Lists</h3>
+<ul>
+<li><p>First loose item.</p>
+<p>With a second paragraph inside it.</p></li>
+<li><p>Second loose item.</p></li>
+</ul>
+<h2 id="blockquotes">Blockquotes</h2>
+<blockquote>
+<p>A blockquote. Set back from the body with a bar on the left. It reads
+as a quote. The bar is frost-colored. Make sure there&#39;s no awkward gap
+at the bottom.</p>
+<p>A second paragraph inside the same quote.</p>
+</blockquote>
+<h2 id="tables">Tables</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Column</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Primary key</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">text</td>
+<td style="text-align: left;"><code>&#39;&#39;</code></td>
+<td style="text-align: left;">Display name, may be empty</td>
+</tr>
+<tr>
+<td style="text-align: left;">score</td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;"><code>0.0</code></td>
+<td style="text-align: left;">Normalized to the range zero through
+one</td>
+</tr>
+<tr>
+<td style="text-align: left;">tags</td>
+<td style="text-align: left;">text[]</td>
+<td style="text-align: left;"><code>{}</code></td>
+<td style="text-align: left;">Free-form, lowercased on write</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Left</th>
+<th style="text-align: center;">Center</th>
+<th style="text-align: right;">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">a</td>
+<td style="text-align: center;">b</td>
+<td style="text-align: right;">c</td>
+</tr>
+<tr>
+<td style="text-align: left;">aa</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: right;">cc</td>
+</tr>
+</tbody>
+</table>
+<h2 id="images">Images</h2>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAADIBAMAAADioZgpAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAwUExURS40QDtCUkNMXkxWatje6eXp8Ozv9I+8u4jA0IGhwV6BrL9hatCHcOvLi6O+jLSOrYdIH14AAAAHdElNRQfqCwoKHSpKJmMtAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI2LTExLTEwVDEwOjI5OjQyKzAwOjAwYe0ggQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNi0xMS0xMFQxMDoyOTo0MiswMDowMBCwmD0AAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjYtMTEtMTBUMTA6Mjk6NDIrMDA6MDBHpbniAAAAEGNhTnYAAAAyAAAAyAAAAAAAAAAANwzemAAAAaFJREFUeNrt0dEAg2AAgMFfIYUppJBCClNIIYUUUpjCFFJIYSP43nq8U7gxylReZS5LWcu7bGUvRznLp3zLVe7yK0OIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChAgRIkSIECFChDwZ8gfwqKzWiYmIvQAAAABJRU5ErkJggg==" alt="Nord Theme Color Gradient" /></p>
+<h2 id="code">Code</h2>
+<p>Inline code like <code>git rebase -i HEAD~3</code> should have a
+raised background and mono-type with no visible shift.</p>
+<p>A fenced block:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># nord-bars.sh</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generates nord-bars.png: the 16 Nord palette colors as 50x200 vertical bars.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="va">colors</span><span class="op">=</span><span class="va">(</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  2E3440 3B4252 434C5E 4C566A         <span class="co"># Polar Night</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  D8DEE9 E5E9F0 ECEFF4                <span class="co"># Snow Storm</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  8FBCBB 88C0D0 81A1C1 5E81AC         <span class="co"># Frost</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  BF616A D08770 EBCB8B A3BE8C B48EAD  <span class="co"># Aurora</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="va">args</span><span class="op">=</span><span class="va">()</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> <span class="st">&quot;</span><span class="va">${colors</span><span class="op">[@]</span><span class="va">}</span><span class="st">&quot;</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="va">args</span><span class="op">+=</span><span class="va">(</span><span class="st">&quot;xc:#</span><span class="va">$c</span><span class="st">&quot;</span><span class="va">)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ex">magick</span> <span class="at">-size</span> 50x200 <span class="st">&quot;</span><span class="va">${args</span><span class="op">[@]</span><span class="va">}</span><span class="st">&quot;</span> +append <span class="st">&quot;</span><span class="va">${1</span><span class="op">:-</span>nord-bars.png<span class="va">}</span><span class="st">&quot;</span></span></code></pre></div>
+<p>A block with no language:</p>
+<pre><code>plain text block
+  preserve  extra  spacing
+and   tabs,   which   are   here.
+</code></pre>
+</body>
+</html>
