@@ -27,6 +27,8 @@ This is body text to confirm spacing above and below.
 
 This is body text to confirm spacing above and below.
 
+---
+
 ## Lists
 
 ### Bullet Lists
