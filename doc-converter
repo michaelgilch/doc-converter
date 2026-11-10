@@ -59,7 +59,7 @@ done
 	|| error_exit "expected FILE and FORMAT, got ${#positional[@]} argument(s)"
 
 input=${positional[0]}
-format=${positional[1]}
+format=${positional[1],,}
 
 case $format in
 	html|pdf) ;;
