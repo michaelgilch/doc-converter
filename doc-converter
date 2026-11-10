@@ -6,6 +6,65 @@
 
 set -euo pipefail
 
+usage() {
+	cat <<EOF
+Usage: doc-converter FILE.md FORMAT [-o OUTPUT]
+
+Convert a markdown file to a Nord-styled HTML or PDF document.
+
+Arguments:
+	FILE.md 	Source markdown file.
+	FORMAT 		html or pdf.
+
+Options:
+	-o, --output 	Write to this path instead of next to the source
+					(default: FILE.html or FILE.pdf alongside FILE.md).
+	-h, --help		Show this help.
+
+EOF
+}
+
+error_exit() {
+	printf '%s\n\n' "$*" >&2
+	exit 1
+}
+
+output=""
+positional=()
+
+while (($# > 0)); do
+	case $1 in 
+	-o|--output)
+		(($# >= 2)) || error_exit "$1 needs a path"
+		output=$2
+		shift 2
+		;;
+	-h|--help)
+		usage
+		exit 0
+		;;
+	-?*)
+		error_exit "Unknown option: $1"
+		;;
+	*)
+		positional+=("$1")
+		shift
+		;;
+	esac
+done
+
+((${#positional[@]} == 2)) || error_exit "expected FILE and FORMAT, got ${#positional[@]} argument(s)"
+
+input=${positional[0]}
+format=${positional[1]}
+
+case $format in
+	html|pdf) ;;
+	*) error_exit "FORMAT must be html or pdf, got '$format'" ;;
+esac
+
+[[ -f $input ]] || error_exit "no such file: $input"
+
 # --from gfm 	github-flavored markdown
 # --standalone 	emit proper html and head tags
 pandoc --from gfm --to html5 --standalone --css style.css --output markdown-test.html markdown-test.md 
