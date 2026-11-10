@@ -6,9 +6,11 @@
 
 set -euo pipefail
 
+prog=${0##*/}
+
 usage() {
 	cat <<EOF
-Usage: doc-converter FILE.md FORMAT [-o OUTPUT]
+Usage: $prog FILE.md FORMAT [-o OUTPUT]
 
 Convert a markdown file to a Nord-styled HTML or PDF document.
 
@@ -25,7 +27,7 @@ EOF
 }
 
 error_exit() {
-	printf '%s\n\n' "$*" >&2
+	printf '%s: %s\n\n' "$prog" "$*" >&2
 	exit 1
 }
 
@@ -53,7 +55,8 @@ while (($# > 0)); do
 	esac
 done
 
-((${#positional[@]} == 2)) || error_exit "expected FILE and FORMAT, got ${#positional[@]} argument(s)"
+((${#positional[@]} == 2)) \
+	|| error_exit "expected FILE and FORMAT, got ${#positional[@]} argument(s)"
 
 input=${positional[0]}
 format=${positional[1]}
