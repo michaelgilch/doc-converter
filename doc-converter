@@ -73,15 +73,22 @@ if [[ -z $output ]]; then
 	output=$src_dir/$stem.$format
 fi
 
+pandoc_args=(
+	--from gfm		# github-flavored markdown
+	--to html5
+	--standalone 	# emit proper html and head tags
+	--css style.css
+)
+
 case $format in 
 	html)
-		# --from gfm 	github-flavored markdown
-		# --standalone 	emit proper html and head tags
-		pandoc --from gfm --to html5 --standalone --css style.css --output "$output" "$input"
+		pandoc "${pandoc_args[@]}" --output "$output" "$input"
 		;;
 	pdf)
-		# Piping through weasyprint to convert HTML to PDF bypasses need for LaTeX styles, when added
-		pandoc --from gfm --to html5 --standalone --css style.css "$input" | weasyprint --base-url "$PWD/" - "$output"
+		# Piping html through weasyprint to convert to PDF 
+		# bypasses the need for LaTeX stylesheets.
+		pandoc "${pandoc_args[@]}" "$input" \
+			| weasyprint --base-url "$PWD/" - "$output"
 		;;
 esac
 
