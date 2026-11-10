@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="180" fill="#2E3440"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- md -->
+    <g stroke="#88C0D0" stroke-width="92">
+      <path d="M181 588 V369 M181 452 A83 83 0 0 1 347 452 V588 M347 452 A83 83 0 0 1 513 452 V588"/>
+      <ellipse cx="743" cy="479" rx="99" ry="110"/>
+      <path d="M843 233 V588"/>
+    </g>
+    <!-- pdf -->
+    <g stroke="#BF616A" stroke-width="34">
+      <path d="M151 744 V865"/>
+      <ellipse cx="185" cy="782" rx="34" ry="38"/>
+      <ellipse cx="298" cy="782" rx="34" ry="38"/>
+      <path d="M332 694 V820"/>
+      <path d="M394 820 V725 A31 31 0 0 1 425 694 H433 M370 744 H433"/>
+    </g>
+    <!-- html -->
+    <g stroke="#EBCB8B" stroke-width="34">
+      <path d="M515 694 V820 M515 782 A33 38 0 0 1 581 782 V820"/>
+      <path d="M640 709 V795 Q640 820 665 820 H678 M610 744 H680"/>
+      <path d="M712 744 V820 M712 782 A28 38 0 0 1 768 782 V820 M768 782 A28.5 38 0 0 1 825 782 V820"/>
+      <path d="M873 694 V795 Q873 820 898 820 H904"/>
+    </g>
+  </g>
+</svg>
