@@ -66,7 +66,14 @@ case $format in
 	*) error_exit "FORMAT must be html or pdf, got '$format'" ;;
 esac
 
-[[ -f $input ]] || error_exit "no such file: $input"
+[[ -e $input ]] || error_exit "no such file: $input"
+[[ -f $input ]] || error_exit "not a regular file: $input"
+[[ -r $input ]] || error_exit "cannot read: $input"
+
+command -v pandoc >/dev/null || error_exit "pandoc not found on PATH"
+if [[ $format == pdf ]]; then
+	command -v weasyprint >/dev/null || error_exit "weasyprint not found on PATH"
+fi
 
 src_dir=$(dirname "$input")
 base=$(basename "$input")
