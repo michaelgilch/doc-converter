@@ -2,7 +2,7 @@
 #
 # doc-converter
 #
-# Converts Markdown to HTML or PDF.
+# Converts Markdown to HTML and/or PDF.
 
 set -euo pipefail
 
@@ -11,6 +11,7 @@ set -euo pipefail
 pandoc --from gfm --to html5 --standalone --css style.css --output markdown-test.html markdown-test.md 
 
 # Piping through weasyprint to convert HTML to PDF bypasses need for LaTeX styles, when added
-pandoc --from gfm --to html5 --standalone markdown-test.md | weasyprint --base-url "$PWD/" - markdown-test.pdf
+pandoc --from gfm --to html5 --standalone --css style.css markdown-test.md | weasyprint --base-url "$PWD/" - markdown-test.pdf
 
 ls -l markdown-test.html markdown-test.pdf
+

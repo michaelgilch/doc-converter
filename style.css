@@ -76,6 +76,20 @@ body {
 	padding: 1.5rem;
 }
 
+@media print {
+	/* WeasyPrint shows a white border around the root background. Change the 
+	 * root background to white to match. */
+	:root {
+		--bg: white;
+	}
+
+	/* US Letter with 0.75" margins */
+	@page {
+		size: 8.5in 11in;
+		margin: 0.75in;
+	}
+}
+
 /* --------------------------------------------------------------------------
  * Headings
  * ------------------------------------------------------------------------- */
