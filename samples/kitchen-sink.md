@@ -81,7 +81,7 @@ This is body text to confirm spacing above and below.
 
 ## Images
 
-![Nord Theme Color Gradient](nord-bars.png)
+![Nord Theme Color Gradient](./samples/nord-bars.png)
 
 ## Code
 
