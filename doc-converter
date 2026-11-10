@@ -75,6 +75,9 @@ if [[ $format == pdf ]]; then
 	command -v weasyprint >/dev/null || error_exit "weasyprint not found on PATH"
 fi
 
+[[ $(readlink -f "$output") != $(readlink -f "$input") ]] \
+	|| error_exit "output would overwrite the input: $output"
+
 src_dir=$(dirname "$input")
 base=$(basename "$input")
 stem=${base%.*}
