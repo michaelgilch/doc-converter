@@ -102,7 +102,7 @@ case $format in
 		# Piping html through weasyprint to convert to PDF 
 		# bypasses the need for LaTeX stylesheets.
 		pandoc "${pandoc_args[@]}" "$input" \
-			| weasyprint --base-url "$PWD/" - "$output"
+			| weasyprint --quiet --base-url "$PWD/" - "$output"
 		;;
 esac
 
