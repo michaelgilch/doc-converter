@@ -76,3 +76,7 @@ This is body text to confirm spacing above and below.
 |:-----|:------:|------:|
 | a    |   b    |     c |
 | aa   |   bb   |    cc |
+
+## Images
+
+![Nord Theme Color Gradient](nord-bars.png)

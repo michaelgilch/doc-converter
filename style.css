@@ -170,3 +170,14 @@ th {
 }
 
 tbody tr:nth-child(even) { background: var(--bg-raised); }
+
+/* --------------------------------------------------------------------------
+ * Images
+ * ------------------------------------------------------------------------- */
+
+img {
+	max-width: 80%;
+	height: auto;
+	display: block;
+	margin: 1.25em auto;
+}
