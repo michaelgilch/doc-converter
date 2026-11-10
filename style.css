@@ -181,3 +181,25 @@ img {
 	display: block;
 	margin: 1.25em auto;
 }
+
+/* --------------------------------------------------------------------------
+ * Code
+ * ------------------------------------------------------------------------- */
+
+code, pre {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+}
+
+/* Inline */
+:not(pre) > code {
+	background: var(--bg-raised);
+	padding: 0.1em 0.3em;
+}
+
+pre {
+	margin: 0 0 1em;
+	padding: 0.8em 1em;
+	background: var(--bg-raised);
+	line-height: 1.1;
+}

@@ -80,3 +80,34 @@ This is body text to confirm spacing above and below.
 ## Images
 
 ![Nord Theme Color Gradient](nord-bars.png)
+
+## Code
+
+Inline code like `git rebase -i HEAD~3` should have a raised background and 
+mono-type with no visible shift.
+
+A fenced block:
+
+```bash
+#!/bin/bash
+# 
+# nord-bars.sh
+#
+# Generates nord-bars.png: the 16 Nord palette colors as 50x200 vertical bars.
+
+set -euo pipefail
+
+colors=(
+  2E3440 3B4252 434C5E 4C566A         # Polar Night
+  D8DEE9 E5E9F0 ECEFF4                # Snow Storm
+  8FBCBB 88C0D0 81A1C1 5E81AC         # Frost
+  BF616A D08770 EBCB8B A3BE8C B48EAD  # Aurora
+)
+
+args=()
+for c in "${colors[@]}"; do
+  args+=("xc:#$c")
+done
+
+magick -size 50x200 "${args[@]}" +append "${1:-nord-bars.png}"
+```
