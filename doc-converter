@@ -87,10 +87,11 @@ if [[ -z $output ]]; then
 fi
 
 pandoc_args=(
-	--from gfm		# github-flavored markdown
+	--from gfm			# github-flavored markdown
 	--to html5
-	--standalone 	# emit proper html and head tags
+	--standalone 		# emit proper html and head tags
 	--css style.css
+	--embed-resources 	# inline the stylesheet and any images
 )
 
 case $format in 
