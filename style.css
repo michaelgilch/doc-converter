@@ -34,8 +34,11 @@
 	--bg-raised: var(--nord5);
 	--fg: var(--nord0);
 	--fg-muted: var(--nord3);
+	--heading: var(--nord0);
+	--heading-1: var(--nord10);
 	--link: var(--nord10);
 	--quote-bar: var(--nord9);
+	--rule: var(--nord4);
 
 	--font-body: system-ui, "DejaVu	Sans", Arial, sans-serif;
 	--font-mono: "Hack", "DejaVu Sans Mono", Consolas;
@@ -49,8 +52,11 @@
 		--bg-raised: var(--nord1);
 		--fg: var(--nord4);
 		--fg-muted: #8f9bb3; /* nord3 is unreadable on nord0, so lightened it */
+		--heading: var(--nord6);
+		--heading-1: var(--nord8);
 		--link: var(--nord8);
 		--quote-bar: var(--nord9);
+		--rule: var(--nord2);
 	}
 }
 
@@ -101,10 +107,10 @@ h6 { font-size: 1em; }
 p { margin: 0 0 1em; }
 
 a {
-  color: var(--link);
-  text-decoration: none;
-  /* Break long URLs anywhere to prevent horizonal overflow. */
-  overflow-wrap: anywhere;
+	color: var(--link);
+	text-decoration: none;
+	/* Break long URLs anywhere to prevent horizonal overflow. */
+	overflow-wrap: anywhere;
 }
 
 a:hover { text-decoration: underline; }
@@ -114,8 +120,8 @@ a:hover { text-decoration: underline; }
  * ------------------------------------------------------------------------- */
 
 ul, ol {
-  margin: 0 0 1em;
-  padding-left: 1.6em;
+	margin: 0 0 1em;
+	padding-left: 1.6em;
 }
 
 li { margin: 0.25em 0; }
@@ -137,3 +143,27 @@ blockquote {
 }
 
 blockquote > :last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+ * Tables
+ * ------------------------------------------------------------------------- */
+
+table {
+	width: 100%;
+	margin: 0 0 1.25em;
+	font-size: 0.9em;
+	line-height: 1.4;
+}
+
+th, td {
+	padding: 0.4em 0.6em;
+	border-bottom: 1px solid var(--rule);
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	font-weight: 600;
+	border-bottom: 2px solid var(--fg-muted);
+	background: var(--bg-raised);
+}

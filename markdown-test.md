@@ -62,3 +62,17 @@ This is body text to confirm spacing above and below.
 > bottom.
 >
 > A second paragraph inside the same quote.
+
+## Tables
+
+| Column | Type   | Default | Notes                                    |
+|:-------|:-------|:--------|:-----------------------------------------|
+| id     | int    |         | Primary key                              |
+| name   | text   | `''`    | Display name, may be empty               |
+| score  | float  | `0.0`   | Normalized to the range zero through one |
+| tags   | text[] | `{}`    | Free-form, lowercased on write           |
+
+| Left | Center | Right |
+|:-----|:------:|------:|
+| a    |   b    |     c |
+| aa   |   bb   |    cc |
