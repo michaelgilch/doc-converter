@@ -111,3 +111,10 @@ done
 
 magick -size 50x200 "${args[@]}" +append "${1:-nord-bars.png}"
 ```
+
+A block with no language:
+
+```
+plain text block
+  preserve  extra  spacing
+and   tabs,   which   are   here.
