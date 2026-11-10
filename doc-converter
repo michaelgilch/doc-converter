@@ -65,12 +65,25 @@ esac
 
 [[ -f $input ]] || error_exit "no such file: $input"
 
-# --from gfm 	github-flavored markdown
-# --standalone 	emit proper html and head tags
-pandoc --from gfm --to html5 --standalone --css style.css --output markdown-test.html markdown-test.md 
+src_dir=$(dirname "$input")
+base=$(basename "$input")
+stem=${base%.*}
 
-# Piping through weasyprint to convert HTML to PDF bypasses need for LaTeX styles, when added
-pandoc --from gfm --to html5 --standalone --css style.css markdown-test.md | weasyprint --base-url "$PWD/" - markdown-test.pdf
+if [[ -z $output ]]; then
+	output=$src_dir/$stem.$format
+fi
 
-ls -l markdown-test.html markdown-test.pdf
+case $format in 
+	html)
+		# --from gfm 	github-flavored markdown
+		# --standalone 	emit proper html and head tags
+		pandoc --from gfm --to html5 --standalone --css style.css --output "$output" "$input"
+		;;
+	pdf)
+		# Piping through weasyprint to convert HTML to PDF bypasses need for LaTeX styles, when added
+		pandoc --from gfm --to html5 --standalone --css style.css "$input" | weasyprint --base-url "$PWD/" - "$output"
+		;;
+esac
+
+printf '%s\n' "$output"
 
