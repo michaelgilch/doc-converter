@@ -126,7 +126,11 @@ h6 { font-size: 1em; }
  * Text
  * ------------------------------------------------------------------------- */
 
-p { margin: 0 0 1em; }
+p { 
+	margin: 0 0 1em;
+	orphans: 3;
+	widows: 3;
+}
 
 a {
 	color: var(--link);
