@@ -40,6 +40,15 @@
 	--quote-bar: var(--nord9);
 	--rule: var(--nord4);
 
+	/* Syntax tokens, light theme. */
+	--tok-keyword: var(--nord10);
+	--tok-string: var(--nord11);
+	--tok-comment: var(--nord3);
+	--tok-number: var(--nord15);
+	--tok-type: var(--nord10);
+	--tok-function: var(--nord0);
+	--tok-error: var(--nord11);
+
 	--font-body: system-ui, "DejaVu	Sans", Arial, sans-serif;
 	--font-mono: "Hack", "DejaVu Sans Mono", Consolas;
 }
@@ -57,6 +66,14 @@
 		--link: var(--nord8);
 		--quote-bar: var(--nord9);
 		--rule: var(--nord2);
+
+		--tok-keyword: var(--nord9);
+		--tok-string: var(--nord14);
+		--tok-comment: #616e88; /* nord3-gui-bright from nordtheme/vim */
+		--tok-number: var(--nord15);
+		--tok-type: var(--nord7);
+		--tok-function: var(--nord8);
+		--tok-error: var(--nord11);
 	}
 }
 
@@ -234,6 +251,21 @@ pre {
 	padding: 0.8em 1em;
 	background: var(--bg-raised);
 	line-height: 1.1;
+
 	orphans: 3;
 	widows: 3;
 }
+
+/* Syntax tokens using pandoc's skylighting.
+ * Survives e-ink greyscale displays with color as a bonus */
+code span.kw, code span.cf { color: var(--tok-keyword); font-weight: 600; }
+code span.bu, code span.im, code span.pp { color: var(--tok-keyword); }
+code span.dt, code span.at, code span.ex { color: var(--tok-type); }
+code span.st, code span.ch, code span.vs, code span.ss, code span.sc { color: var(--tok-string); }
+code span.dv, code span.fl, code span.bn, code span.cn { color: var(--tok-number); }
+code span.fu { color: var(--tok-function); font-weight: 600; }
+code span.co, code span.do, code span.in { color: var(--tok-comment); font-style: italic; }
+code span.cv, code span.an { color: var(--tok-comment); font-weight: 600; font-style: italic; }
+code span.op, code span.ot, code span.va { color: inherit; }
+code span.al, code span.er { color: var(--tok-error); font-weight: 600; }
+code span.wa { color: var(--tok-comment); font-style: italic; }
