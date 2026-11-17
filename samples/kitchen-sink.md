@@ -120,3 +120,10 @@ A block with no language:
 plain text block
   preserve  extra  spacing
 and   tabs,   which   are   here.
+```
+
+A very long block with no natural break:
+
+```bash
+curl -fsSL "https://example.com/api/v2/resources/0123456789abcdef0123456789abcdef/children?expand=true&include=metadata,permissions,history&page_size=500" | jq '.items[] | select(.kind=="file") | .name'
+```
