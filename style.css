@@ -234,4 +234,6 @@ pre {
 	padding: 0.8em 1em;
 	background: var(--bg-raised);
 	line-height: 1.1;
+	orphans: 3;
+	widows: 3;
 }
